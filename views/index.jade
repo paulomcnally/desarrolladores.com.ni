@@ -1,0 +1,8 @@
+extend layout
+block content
+    div(id="main")
+        each article in data.articles
+            div(class="article")
+                div(class="author")
+                    a(href="#{article.href}",target="_self") #{article.title}
+                    div(class="date") #{article.date}

@@ -1,0 +1,43 @@
+div(id="sidebar")
+    div(class="aside author")
+        h4 Sobre el autor
+        img(class="headshot",src="http://www.gravatar.com/avatar/#{data.author.picture}?r=pg&s=200.jpg&d=identicon")
+        - if (data.author.name != "")
+            dl
+                dt Nombre:
+                dd #{data.author.name}
+        - if (data.author.web != "")
+            dl
+                dt Web:
+                dd
+                    a(href="#{data.author.web}",target="_blank") Sitio web
+        - if (data.author.connections.length > 0)
+            each connection in data.author.connections
+                dl
+                    dt #{connection.name}
+                    dd
+                        a(href="#{connection.url}",target="_blank") #{connection.nick}
+    div(class="aside")
+        h4 Sobre este artículo
+        - if (data.date != "")
+            dl
+                dt Fecha de publicación
+                dd #{data.date}
+        - if (data.update != "")
+            dl
+                dt Fecha de edición
+                dd #{data.update}
+        - if (data.repository != "")
+            dl
+                dt Repositorio
+                dd
+                    input(type="text",class="input-xlarge",value="#{data.repository}",name="clone",id="clone")
+        - if (data.demo != "")
+            a(class="btn btn-primary",href="#{data.demo}",target="_blank") Demo
+        dl
+            dt Tags
+            dd
+                ul
+                    each tag in data.tags
+                        li
+                            a(href="/tag/#{tag}",target="_self") #{tag}
