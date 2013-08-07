@@ -1,6 +1,4 @@
 // load require modules
-var sys = require('sys')
-var exec = require('child_process').exec;
 var fs = require('fs');
 var md = require("node-markdown").Markdown;
 var path = require('path');
@@ -8,10 +6,6 @@ var crypto = require('crypto');
 var moment = require('moment');
 var config = require('../config');
 moment.lang("es");
-
-function puts(error, stdout, stderr) {
-    sys.puts(stdout)
-}
 
 // create public function article
 exports.article = function (req, res) {
@@ -79,10 +73,6 @@ exports.article = function (req, res) {
 
 exports.update = function (req, res) {
     function out() {
-        // download new changes from git
-        exec("git pull", puts);
-
-
         // set directory files
         var dir = path.join(__dirname, '../' + config.content.repository.name + '/articles/', '');
 
