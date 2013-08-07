@@ -6,17 +6,20 @@ var md = require("node-markdown").Markdown;
 var path = require('path');
 var crypto = require('crypto');
 var moment = require('moment');
+var config = require('../config');
 moment.lang("es");
 
-function puts(error, stdout, stderr) { sys.puts(stdout) }
+function puts(error, stdout, stderr) {
+    sys.puts(stdout)
+}
 
 // create public function article
 exports.article = function (req, res) {
     function out() {
 
         // set path to article files
-        var path_article_json = path.join(__dirname, '../articles', req.params.slug + '.json');
-        var path_article_markdown = path.join(__dirname, '../articles', req.params.slug + '.markdown');
+        var path_article_json = path.join(__dirname, '../' + config.content.repository.name + '/articles', req.params.slug + '.json');
+        var path_article_markdown = path.join(__dirname, '../' + config.content.repository.name + '/articles', req.params.slug + '.markdown');
 
         // load article json
         fs.readFile(path_article_json, 'utf8', function (err1, article_json) {
@@ -34,7 +37,7 @@ exports.article = function (req, res) {
                         var article_obj = JSON.parse(article_json);
 
                         // load author json
-                        var path_author_json = path.join(__dirname, '../authors', article_obj.author + '.json');
+                        var path_author_json = path.join(__dirname, '../' + config.content.repository.name + '/authors', article_obj.author + '.json');
 
                         fs.readFile(path_author_json, 'utf8', function (err3, author_json) {
                             if (err3) {
@@ -81,7 +84,7 @@ exports.update = function (req, res) {
 
 
         // set directory files
-        var dir = path.join(__dirname, '../articles/', '');
+        var dir = path.join(__dirname, '../' + config.content.repository.name + '/articles/', '');
 
 
         var data = new Array();
@@ -125,8 +128,8 @@ exports.update = function (req, res) {
                         export_json.articles = new_item;
 
                         // export a json file
-                        fs.writeFile("./articles.json", JSON.stringify(export_json), function(error) {
-                            if( error ){
+                        fs.writeFile("./articles.json", JSON.stringify(export_json), function (error) {
+                            if (error) {
                                 res.send(error)
                             }
                             res.redirect('/');

@@ -11,4 +11,4 @@ app.get('/', controllers.system.home);
 app.get('/articulo/:slug', controllers.system.article);
 app.get('/update', controllers.system.update);
 
-app.listen(process.env.VCAP_APP_PORT || 3000);
+app.listen(1934);
