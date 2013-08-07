@@ -1,4 +1,7 @@
 cache
-node_modules
+#intellij idea files and folder
 *.iml
 .idea
+#project files and folder
+ node_modules
+ articles.json
