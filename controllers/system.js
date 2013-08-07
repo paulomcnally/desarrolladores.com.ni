@@ -90,7 +90,7 @@ exports.update = function (req, res) {
                         var json = JSON.parse(html);
                         var obj_item = {};
                         obj_item.date_format = json.date;
-                        obj_item.date = moment(json.date).fromNow();
+                        obj_item.date = moment(json.date).format('MMMM Do YYYY, h:mm:ss a');
                         obj_item.title = json.title;
                         obj_item.href = "/articulo/" + file.replace("." + file.split('.').pop(), '');
                         data.push(obj_item);

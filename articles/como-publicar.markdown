@@ -12,7 +12,7 @@
     {
         "v": 1,
         "title": "Hola mundo",
-        "date": "2013-08-06T08:53:03.090Z",
+        "date": "2013-08-06 08:53:03",
         "update": "",
         "tags": ["markdown","json"],
         "author": "paulomcnally",

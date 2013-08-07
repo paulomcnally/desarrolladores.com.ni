@@ -190,6 +190,10 @@ dl a:hover {
     font-size: 14px;
     line-height: 18px;
 }
+
+.article h6 {
+    margin: 20px 20px 0 20px;
+}
 .article p,
 .article ul,
 .article ol {
