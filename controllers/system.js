@@ -77,13 +77,9 @@ exports.article = function (req, res) {
     return out();
 }
 
-exports.update = function (req, res) {
+exports.hook  = function (req, res) {
     function out() {
-
-        if( req.param('git') != null ){
-            exec(config.repository.exec, puts);
-        }
-
+        exec(config.repository.exec, puts);
 
         // set directory files
         var dir = path.join(__dirname, '../' + config.content.repository.name + '/articles/', '');
@@ -114,7 +110,7 @@ exports.update = function (req, res) {
                         switch(json.type){
                             case "manual":
                                 obj_item.href = "/articulo/" + file.replace("." + file.split('.').pop(), '');
-                            break;
+                                break;
                             case "hangout":
                                 obj_item.href = "/hangout/" + file.replace("." + file.split('.').pop(), '');
                                 break;
