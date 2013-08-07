@@ -14,6 +14,6 @@ exports.web = web;
 
 var repository = {};
 
-repository.exec = '/var/www/html/desarrolladores.com.ni/content_desarrolladores';
+repository.exec = '/var/www/html/desarrolladores.com.ni/content_desarrolladores/post-receive.sh';
 
 exports.repository = repository;
