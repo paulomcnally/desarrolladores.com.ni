@@ -9,6 +9,7 @@ app.use(express.static(__dirname + '/public'));
 
 app.get('/', controllers.system.home);
 app.get('/articulo/:slug', controllers.system.article);
+app.get('/hangouts/:slug', controllers.system.hangouts);
 app.get('/update', controllers.system.update);
 
 app.listen(1934);

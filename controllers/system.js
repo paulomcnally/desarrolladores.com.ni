@@ -1,4 +1,6 @@
 // load require modules
+var sys = require('sys');
+var exec = require('child_process').exec;
 var fs = require('fs');
 var md = require("node-markdown").Markdown;
 var path = require('path');
@@ -6,6 +8,10 @@ var crypto = require('crypto');
 var moment = require('moment');
 var config = require('../config');
 moment.lang("es");
+
+function puts(error, stdout, stderr) {
+    sys.puts(stdout);
+}
 
 // create public function article
 exports.article = function (req, res) {
@@ -73,6 +79,12 @@ exports.article = function (req, res) {
 
 exports.update = function (req, res) {
     function out() {
+
+        if( req.param('git') != null ){
+            exec(config.repository.exec, puts);
+        }
+
+
         // set directory files
         var dir = path.join(__dirname, '../' + config.content.repository.name + '/articles/', '');
 
@@ -88,18 +100,26 @@ exports.update = function (req, res) {
             files.forEach(function (file) {
 
                 // read file
-                fs.readFile(dir + file, 'utf-8', function (err, html) {
+                fs.readFile(dir + file, 'utf-8', function (err, json_file) {
                     c++;
                     if (err) throw err;
 
                     // if file mime/type = text/json
                     if (file.split('.').pop() === "json") {
-                        var json = JSON.parse(html);
+                        var json = JSON.parse(json_file);
                         var obj_item = {};
                         obj_item.date_format = json.date;
                         obj_item.date = moment(json.date).format('MMMM Do YYYY, h:mm:ss a');
                         obj_item.title = json.title;
-                        obj_item.href = "/articulo/" + file.replace("." + file.split('.').pop(), '');
+                        switch(json.type){
+                            case "manual":
+                                obj_item.href = "/articulo/" + file.replace("." + file.split('.').pop(), '');
+                            break;
+                            case "hangout":
+                                obj_item.href = "/hangout/" + file.replace("." + file.split('.').pop(), '');
+                                break;
+                        }
+
                         data.push(obj_item);
                     }
 
@@ -113,7 +133,7 @@ exports.update = function (req, res) {
 
                         // create a json objet
                         var export_json = {};
-                        export_json.title = 'Desarrolladores Nicaragua';
+                        export_json.title = config.web.title;
                         export_json.type = 'home';
                         export_json.articles = new_item;
 
@@ -130,6 +150,14 @@ exports.update = function (req, res) {
             });
 
         });
+    }
+
+    return out();
+}
+
+exports.hangouts = function (req, res) {
+    function out() {
+        res.send('Hello world');
     }
 
     return out();
