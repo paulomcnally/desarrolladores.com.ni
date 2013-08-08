@@ -5,4 +5,7 @@ cache
 #project files and folder
  node_modules
  articles.json
+ hangouts.json
+ news.json
+ events.json
  content_desarrolladores
