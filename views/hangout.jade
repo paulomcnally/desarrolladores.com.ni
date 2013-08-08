@@ -1,7 +1,19 @@
-//
-   Created with IntelliJ IDEA.
-   User: paulomcnally
-   Date: 8/7/13
-   Time: 7:49 PM
-   To change this template use File | Settings | File Templates.
+extend layout
+block content
+    div(id="main")
+        div(class="article")
+            h1
+                a(href="#{data.href}",target="_self") !{data.title}
+            div(class="youtube")
+                iframe(class="iframe",width="760",height="570",src="//www.youtube.com/embed/#{data.youtube.id}",frameborder="0",allowfullscreen="true")
+            div(class="content") !{data.content}
+        div(id="disqus_thread")
+        script.
+            var disqus_shortname = 'desarrolladoresnicaragua';
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
 
+            $("#h_hangout").addClass('selected');

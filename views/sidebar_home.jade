@@ -1,5 +1,9 @@
 div(id="sidebar")
     div(class="aside")
+        h3 Hangout
+        h6 #{data.hangouts.rows[0].title}
+        iframe(class="iframe",width="340",height="220",src="//www.youtube.com/embed/#{data.hangouts.rows[0].youtube.id}",frameborder="0",allowfullscreen="true")
+    div(class="aside")
         h3 Sobre Desarrolladores Nicaragua
         p Este es un blog de apoyo comunitario creado por Paulo McNally. El objetivo de este blog es que la comunidad de desarrolladores de Nicaragua compartan sus conocimientos sobre programación, así como enseñar los conceptos fundamentales que se necesitan para escribir código eficaz.
         p El contenido de este sitio se almacena en un repositorio git que cualquiera puede bifurcar, escribir un artículo, y enviar una solicitud de extracción. Si el artículo pasa a los estándares de calidad que se publicará y ayudar a apoyar a la comunidad nodo mayor.

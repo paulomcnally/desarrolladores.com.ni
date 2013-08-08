@@ -1,8 +1,15 @@
 extend layout
 block content
     div(id="main")
-        each article in data.articles
+        h3(class="caption") Noticias
+        each item_news in data.news.rows
             div(class="article")
                 div(class="author")
-                    a(href="#{article.href}",target="_self") #{article.title}
-                    div(class="date") #{article.date}
+                    a(href="#{item_news.href}",target="_self") #{item_news.title}
+                    div(class="date") #{item_news.date}
+        h3(class="caption") Artículo
+        each item_articles in data.articles.rows
+            div(class="article")
+                div(class="author")
+                    a(href="#{item_articles.href}",target="_self") #{item_articles.title}
+                    div(class="date") #{item_articles.date}

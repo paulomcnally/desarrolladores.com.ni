@@ -20,12 +20,14 @@ html
             });
     body
         div(id="container")
-            div(id="header")
-                a(href="/",target="_self")
-                    img(class="logo",src="/img/logo.png",alt="Logo")
+            include header
             block content
             - if( data.type === "manual" )
                 include sidebar_manual
             - if( data.type === "home" )
                 include sidebar_home
+            - if( data.type === "hangout" )
+                include sidebar_hangout
+            - if( data.type === "news" )
+                include sidebar_news
             include footer

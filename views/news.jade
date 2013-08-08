@@ -1,0 +1,10 @@
+extend layout
+block content
+    div(id="main")
+        each item in data.rows
+            div(class="article")
+                div(class="author")
+                    a(href="#{item.href}",target="_self") #{item.title}
+                    div(class="date") #{item.date}
+    script.
+        $("#h_new").addClass('selected');
