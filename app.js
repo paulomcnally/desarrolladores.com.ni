@@ -15,6 +15,5 @@ app.get('/hangout/:slug', controllers.system.hangout);
 app.get('/noticias', controllers.system.news);
 app.get('/noticia/:slug', controllers.system.new);
 app.post('/hook', controllers.system.hook);
-app.get('/busqueda', controllers.system.search);
 
 app.listen(1934);
