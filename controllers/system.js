@@ -402,3 +402,14 @@ exports.news = function (req, res) {
 
     return out();
 }
+
+// search
+exports.search = function (req, res) {
+    function out() {
+        var data = {};
+        data.title = 'Busqueda';
+        res.render('search', { data: data });
+    }
+
+    return out();
+}
