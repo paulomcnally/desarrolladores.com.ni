@@ -21,9 +21,10 @@ div(id="sidebar")
         script(src="http://pagead2.googlesyndication.com/pagead/show_ads.js").
     div(class="aside")
         h3 Busqueda
-        form(action="/busqueda", id="cse-search-box")
+        form(action="http://blog.mcnallydevelopers.com/busqueda", id="cse-search-box")
         div
             input(type="hidden",name="cx",value="partner-pub-2015513932539714:9873985028")
+            input(type="hidden",name="cof",value="FORID:10")
             input(type="hidden",name="ie",value="UTF-8")
             input(type="text",name="q",size="55")
             input(type="submit",name="sa",value="Buscar")
