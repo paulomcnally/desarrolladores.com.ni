@@ -648,3 +648,33 @@ pre{
     border: 0;
     padding: 0;
 }
+
+a.thumbnail{
+    position: relative;
+    overflow: hidden;
+}
+
+a.thumbnail .GB {
+    background: no-repeat url(../img/stream-e9bbd5c7709bd45e4c402f1a3d8fd806.png) 0 -84px;
+    cursor: pointer;
+    left: 25%;
+    position: absolute;
+    top: 30%;
+    z-index: 1000;
+    width: 72px;
+    height: 72px;
+}
+
+div.date{
+    padding: 10px;
+    text-align: center;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    background-color: #e5e5e5;
+    -webkit-box-shadow: inset 0px 1px 0px rgba(0,0,0,0.10), inset 0px -1px 0px #fff, inset 0px 2px 2px rgba(100,100,100,0.10);
+    -moz-box-shadow: inset 0px 1px 0px rgba(0,0,0,0.10), inset 0px -1px 0px #fff, inset 0px 2px 2px rgba(100,100,100,0.10);
+    box-shadow: inset 0px 1px 0px rgba(0,0,0,0.10), inset 0px -1px 0px #fff, inset 0px 2px 2px rgba(100,100,100,0.10);
+    line-height: 12px;
+    font-size: 12px;
+}
